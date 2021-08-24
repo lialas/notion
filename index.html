@@ -68,7 +68,7 @@ h1 {
 }
 
 .date {
-    display: block;
+    display: inline-block;
     min-width: 162px;
     /* padding-right: 30px; */
     /* border-right: 2px solid #295C7B; */
@@ -93,7 +93,7 @@ h1 {
     
     <div class="card">
         <div class="greet" id="greet"></div>
-      <div class="date" id="date"></div>
+       <div class="date" id="date"></div>
       
       <div class="clock">
         <div class="time" id="hour"></div>
@@ -109,9 +109,10 @@ h1 {
 
 <script>
     
-    function date() {
+function date() {
 var today = new Date();
-var weekday = new Array(7);
+var dayofWeek = weekday[today.getDay()];
+   var weekday = new Array(7);
     weekday [0] = "domingo;
     weekday [1] = "segunda";
     weekday [2] = "terça";
@@ -119,11 +120,10 @@ var weekday = new Array(7);
     weekday [4] = "quinta";
     weekday [5} = "sexta";
     weekday [6] = "sábado";
-var dayofWeek = weekday [today.getDay()];
 var date = day0fWeek+" " + today.getDate() + "/" +(today.getMonth()+1) + '/' +today.getFullYear();
     
-    document.getElementById('date').innerHTML = today.getDay();
-    document.getElementById('weekday').innerHTML = today.getDay();
+    document.getElementById('date').innerHTML = date;
+   
     }
 
 function clock() {
