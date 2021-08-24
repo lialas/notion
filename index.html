@@ -108,7 +108,10 @@ h1 {
 </div>
 
 <script>
-    var weekday = new Array(7);
+    
+    function date() {
+var today = new Date();
+var weekday = new Array(7);
     weekday [0] = "domingo;
     weekday [1] = "segunda";
     weekday [2] = "terça";
@@ -116,13 +119,11 @@ h1 {
     weekday [4] = "quinta";
     weekday [5} = "sexta";
     weekday [6] = "sábado";
-    
-    function date() {
-var today = new Date();
-document.getElementById('date').innerHTML = today.getDay();
-var dayofWeek = weekday();
-document.getElementById('weekday').innerHTML = today.getDay();
+var dayofWeek = weekday [today.getDay()];
 var date = day0fWeek+" " + today.getDate() + "/" +(today.getMonth()+1) + '/' +today.getFullYear();
+    
+    document.getElementById('date').innerHTML = today.getDay();
+    document.getElementById('weekday').innerHTML = today.getDay();
     }
 
 function clock() {
