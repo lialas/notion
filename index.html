@@ -94,14 +94,15 @@ h1 {
     <div class="card">
         <div class="greet" id="greet"></div>
       <div class="date" id="date"></div>
+         <div class="weekday" id="weekday">,</div>
+        <div class="colon"></div>
       <div class="clock">
         <div class="time" id="hour"></div>
         <div class="colon">:</div>
         <div class="time" id="min"></div>
         <div class="colon">:</div>
         <div class="time" id="sec"></div>
-      <div class="weekday" id="weekday"></div>
-      </div>
+           </div>
     </div>
     
   </div>
@@ -119,11 +120,11 @@ h1 {
     
     function date() {
 var today = new Date();
-document.getElementById('date').innerHTML = today.toDateString();
-}
-
-    function day0fweek() {
-    var day0fweek = weekday(today.getDay())
+document.getElementById('date').innerHTML = today.getDay();
+var dayofWeek = weekday();
+document.getElementById('weekday').innerHTML = today.getDay();
+var date = day0fWeek+" " + today.getDate() + "/" +(today.getMonth()+1) + '/' +today.getFullYear();
+    }
 
 function clock() {
 var today = new Date();
@@ -144,7 +145,6 @@ document.getElementById('greet').innerHTML = greet;
 document.getElementById('hour').innerHTML = hour;
 document.getElementById('min').innerHTML = minutes;
 document.getElementById('sec').innerHTML = seconds;
-document.getElementById('weekday').innerHTML = day0fweek;
 }
 
 
