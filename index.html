@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>hoje</title>
 
     <style>
 
@@ -80,7 +80,7 @@ h1 {
     min-width: 162px;
     /* padding-right: 30px; */
     font-family: 'Ubuntu', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
     </style>
@@ -100,6 +100,7 @@ h1 {
         <div class="time" id="min"></div>
         <div class="colon">:</div>
         <div class="time" id="sec"></div>
+      <div class="weekday" id="weekday"></div>
       </div>
     </div>
     
@@ -107,11 +108,22 @@ h1 {
 </div>
 
 <script>
+    var weekday = new Array(7);
+    weekday [0] = "domingo;
+    weekday [1] = "segunda";
+    weekday [2] = "terça";
+    weekday [3] = "quarta";
+    weekday [4] = "quinta";
+    weekday [5} = "sexta";
+    weekday [6] = "sábado";
+    
     function date() {
 var today = new Date();
 document.getElementById('date').innerHTML = today.toDateString();
 }
 
+    function day0fweek() {
+    var day0fweek = weekday(today.getDay())
 
 function clock() {
 var today = new Date();
@@ -121,27 +133,21 @@ var seconds = zeros(today.getSeconds());
 
 hrs = today.getHours();
 if (hrs < 12)
-        greet = 'bom dia  ';
+        greet = '☀ bom dia ☀';
     else if (hrs >= 12 && hrs <= 19)
-        greet = 'boa tarde ';
+        greet = '✿ boa tarde ✿';
     else if (hrs >= 19 && hrs <= 24)
-        greet = 'boa noite  ';
+        greet = ' ☽ boa noite ☾';
+    
 // console.log(today.toLocaleTimeString());
 document.getElementById('greet').innerHTML = greet;
 document.getElementById('hour').innerHTML = hour;
 document.getElementById('min').innerHTML = minutes;
 document.getElementById('sec').innerHTML = seconds;
+document.getElementById('weekday').innerHTML = day0fweek;
 }
 
-function twelveHour(hour) {
-if (hour > 12) {
-    return hour -= 12 
-} else if (hour === 0) {
-    return hour = 12;
-} else {
-    return hour
-}
-}
+
 // adds zero infront of single digit number
 function zeros(num) {
 if (num < 10) {
