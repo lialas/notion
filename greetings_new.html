@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&family=Lobster+Two:ital@1&display=swap" rel="stylesheet">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>greeting2</title>
@@ -40,7 +40,7 @@ h1 {
 .card {
     padding: 10px 25px 10px 25px;
     border-radius: 10px;
-    background: #C896D2;
+    background: #ac83c3;
     width: 85vw;
     color: #fff;
     display: inline-block;
@@ -54,7 +54,7 @@ h1 {
 
 .clock {
     display: inline;
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 2em;
    
 }
@@ -72,14 +72,14 @@ h1 {
 .date {
     display: inline;
     min-width: 162px;
-    font-family: 'Ubuntu Condensed', sans-serif;
+    font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 2em;
     padding-right: 30px;
 }
 .greet{
     
     display:inline;
-    font-family: 'Arima Madurai', cursive;
+    font-family: 'Lobster Two', cursive;
     font-size: 2rem;
      padding-right: 30px;
 }
@@ -109,45 +109,36 @@ h1 {
 
 <script>
     function date() {
-var today = new Date();
-document.getElementById('date').innerHTML = today.toDateString();
+var semana = ["dom", "seg", " terça", "qua", "qui", "sex", "sáb"];
+var month = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "agosto", "outubro", "novembro", "dezembro"]
+var d = new Date();
+
+document.getElementById("date").innerHTML = semana[d.getDay()] + ", " + d.getDate () + " de " + month[d.getMonth()-1];
 }
 
 
 function clock() {
 var today = new Date();
-var hour = zeros(twelveHour(today.getHours()));
+var hour = zeros(today.getHours());
 var minutes = zeros(today.getMinutes());
 var seconds = zeros(today.getSeconds());
-if(today.getHours() >=12){
-    seconds+=" pm"
-}
-else{
-    seconds+=" am"
-}
+
 hrs = today.getHours();
 if (hrs < 12)
-        greet = '🌣 bom dia! 🌣 ';
+        greet = '🌣&nbsp  bom dia  &nbsp🌣 ';
     else if (hrs >= 12 && hrs <= 19)
-        greet = '❀ boa tarde! ❀ ';
+        greet = '❀&nbsp  boa tarde  &nbsp❀';
     else if (hrs >= 19 && hrs <= 24)
-        greet = '☽ boa noite! ☾ ';
+        greet = '☽&nbsp  boa noite  &nbsp☾ ';
 // console.log(today.toLocaleTimeString());
 document.getElementById('greet').innerHTML = greet;
-document.getElementById('hour').innerHTML = hour;
+document.getElementById('hour').innerHTML = ['◴ &nbsp ' + hour];
 document.getElementById('min').innerHTML = minutes;
 document.getElementById('sec').innerHTML = seconds;
 }
 
-function twelveHour(hour) {
-if (hour > 12) {
-    return hour -= 12 
-} else if (hour === 0) {
-    return hour = 12;
-} else {
-    return hour
-}
-}
+
+
     
 // adds zero infront of single digit number
 function zeros(num) {
